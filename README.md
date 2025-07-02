@@ -69,7 +69,7 @@ message RegisterClickResponse{
 
 This method increases the click count in PostgreSQL DB.
 
-The code for shortener service is located in `shortener_server` folder.
+The code for shortener service is located in [shortener_server](./shortener_server/) folder.
 
 ## Getter gRPC Methods
 
@@ -135,7 +135,7 @@ message HistoryResponse{
 
 This method returns the clicked timestamp history of an url using its short code.
 
-The code for getter service is located in `getter` folder.
+The code for getter service is located in [getter](./getter/) folder.
 
 ## Detailed flow of URLs
 
