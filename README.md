@@ -12,6 +12,8 @@ The API is protected with JWT based authentication. Users can register and login
 
 [Postman API Documentation](https://documenter.getpostman.com/view/17001797/2sB34Zs5Lf)
 
+The code for API gateway service is located in `api-gateway` folder.
+
 ## Shortener gRPC Methods
 
 [shortener.proto file](./shortener_server/proto/shortener.proto)
@@ -66,6 +68,8 @@ message RegisterClickResponse{
 ```
 
 This method increases the click count in PostgreSQL DB.
+
+The code for shortener service is located in `shortener_server` folder.
 
 ## Getter gRPC Methods
 
@@ -130,6 +134,8 @@ message HistoryResponse{
 ```
 
 This method returns the clicked timestamp history of an url using its short code.
+
+The code for getter service is located in `getter` folder.
 
 ## Detailed flow of URLs
 
