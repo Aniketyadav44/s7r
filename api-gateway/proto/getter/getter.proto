@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option go_package = "github.com/Aniketyadav44/s7r/api-gateway";
+
+package getter_service;
+
+import "google/protobuf/timestamp.proto";
+
+service Getter{
+    rpc GetAllUrls(AllRequest) returns (AllResponse){};
+    rpc GetClicks (ClickRequest)returns (ClickResponse){};
+    rpc GetHistory (HistoryRequest) returns (HistoryResponse){};
+}
+
+message UrlItem{
+    string id = 1;
+    int64 user_id = 2;
+    string url = 3;
+    string short = 4;
+    int64 clicks = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+}
+message AllRequest{
+    int64 user_id = 1;
+}
+message AllResponse{
+    bool success = 1;
+    string message = 2;
+    repeated UrlItem urls = 3;
+}
+
+message ClickRequest{
+    string short_code = 1;
+}
+message ClickResponse{
+    bool success = 1;
+    string message = 2;
+    int64 count = 3;
+}
+
+message HistoryRequest{
+    string short_code = 1;
+}
+message HistoryResponse{
+    bool success = 1;
+    string message = 2;
+    repeated google.protobuf.Timestamp history = 3;
+}

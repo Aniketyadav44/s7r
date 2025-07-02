@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "github.com/Aniketyadav44/s7r/shortener_server";
+
+package shortener_service;
+
+service Shortener{
+    rpc ShortenUrl(ShortenRequest)returns(ShortenResponse){}
+    rpc DeleteUrl(DeleteRequest)returns(DeleteResponse){}
+    rpc RegisterClick(RegisterClickRequest) returns (RegisterClickResponse){}
+}
+
+// for ShortenUrl service
+message ShortenRequest{
+    string url = 1;
+    string user_id = 2;
+}
+message ShortenResponse{
+    bool success = 1;
+    string short_code = 2;
+    string message = 3;
+}
+
+// for DeleteUrl service
+message DeleteRequest{
+    string short_code = 1;
+
+}
+message DeleteResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+// for RegisterClick service
+message RegisterClickRequest{
+    string short_code = 1;
+}
+message RegisterClickResponse{
+    bool success = 1;
+    string message = 2;
+}
